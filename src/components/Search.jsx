@@ -9,7 +9,9 @@ import {
 	Paper,
 	InputBase,
 	Divider,
+	FormControl,
 } from "@mui/material";
+import { FormControlUnstyled } from "@mui/base";
 
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -19,8 +21,10 @@ import DirectionsIcon from "@mui/icons-material/Directions";
 export default function Search() {
 	const [searchValue, setSearchValue] = useState();
 
-	const handleChange = (event) => {
-		console.log(event.target.value);
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		console.log(searchValue);
+		// console.log(1);
 	};
 
 	return (
@@ -40,7 +44,6 @@ export default function Search() {
 		// 		</FormControl>
 		// 	</Card>
 		// </Box>
-
 		<Paper
 			component="form"
 			sx={{
@@ -48,17 +51,25 @@ export default function Search() {
 				display: "flex",
 				alignItems: "center",
 			}}
+			onSubmit={handleSubmit}
 		>
 			<IconButton sx={{ p: "10px" }} aria-label="menu">
 				<MenuIcon />
 			</IconButton>
 			<InputBase
 				fullWidth
-				sx={{ ml: 1, flex: 1 }}
+				autoFocus
+				value={searchValue}
 				placeholder="Search Game in your head"
-				onChange={handleChange}
+				sx={{ ml: 1, flex: 1 }}
+				onChange={(e) => setSearchValue(e.target.value)}
 			/>
-			<IconButton type="button" sx={{ p: "10px" }} aria-label="search">
+			<IconButton
+				type="submit"
+				value="Submit"
+				sx={{ p: "10px" }}
+				aria-label="search"
+			>
 				<SearchIcon />
 			</IconButton>
 		</Paper>
