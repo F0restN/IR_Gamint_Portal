@@ -9,26 +9,16 @@ import Detail from "./pages/Detail";
 function App() {
 	return (
 		<Box sx={{ my: 0, py: 0 }}>
-			<Stack
-				direction="column"
-				justifyContent="space-between"
-				alignItems="center"
-				spacing={2}
-				sx={{ height: "100vh" }}
-			>
-				<Header />
-				<Router>
-					<Switch>
-						<Route exact path="/">
-							<Homepage />
-						</Route>
-						<Route exact path="/search">
-							<Detail />
-						</Route>
-					</Switch>
-				</Router>
-				<Footer />
-			</Stack>
+			<Router>
+				<Switch>
+					<Route exact path="/">
+						<Homepage />
+					</Route>
+					<Route exact path="/search">
+						<Detail />
+					</Route>
+				</Switch>
+			</Router>
 		</Box>
 	);
 }

@@ -41,6 +41,7 @@ export default function Search(props) {
 				p: "6px 6px",
 				display: "flex",
 				alignItems: "center",
+				// border: "black solid",
 			}}
 			onSubmit={handleSubmit}
 		>

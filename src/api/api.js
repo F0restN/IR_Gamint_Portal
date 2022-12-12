@@ -8,9 +8,6 @@ const API = axios.create({
 
 API.interceptors.request.use(
 	(req) => {
-		const authenticationStatus = store.getState();
-		if (authenticationStatus)
-			req.headers.Authorization = `Bearer ${authenticationStatus.jwtToken}`;
 		return req;
 	},
 	(error) => Promise.reject(error)
