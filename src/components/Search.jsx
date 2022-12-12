@@ -11,39 +11,30 @@ import {
 	Divider,
 	FormControl,
 } from "@mui/material";
-import { FormControlUnstyled } from "@mui/base";
+import { useHistory } from "react-router-dom";
 
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import DirectionsIcon from "@mui/icons-material/Directions";
 
-export default function Search() {
+export default function Search(props) {
+	const history = useHistory();
 	const [searchValue, setSearchValue] = useState();
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
-		console.log(searchValue);
-		// console.log(1);
+		history.push({
+			pathname: "/search",
+			search: searchValue,
+			state: {
+				queryContent: searchValue,
+			},
+		});
+		// console.log(searchValue);
 	};
 
 	return (
-		// <Box sx={{ display: "flex", flexWrap: "wrap" }}>
-		// 	<Card>
-		// 		<FormControl variant="outlined" sx={{ width: "90ch" }}>
-		// 			<OutlinedInput
-		// 				id="outlined-adornment-weight"
-		// 				value={searchValue}
-		// 				onChange={handleChange("weight")}
-		// 				endAdornment={<InputAdornment position="end">GO</InputAdornment>}
-		// 				aria-describedby="outlined-weight-helper-text"
-		// 				inputProps={{
-		// 					"aria-label": "weight",
-		// 				}}
-		// 			/>
-		// 		</FormControl>
-		// 	</Card>
-		// </Box>
 		<Paper
 			component="form"
 			sx={{
