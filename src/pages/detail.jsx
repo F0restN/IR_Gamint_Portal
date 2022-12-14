@@ -1,7 +1,15 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useLocation } from "react-router-dom";
-import { Divider, Grid, LinearProgress, Chip } from "@mui/material";
+import {
+	Divider,
+	Grid,
+	LinearProgress,
+	Chip,
+	Card,
+	CardContent,
+	CardMedia,
+} from "@mui/material";
 import Search from "../components/Search";
 import GameCard from "../components/GameCard";
 import Footer from "../components/Footer";
@@ -51,7 +59,7 @@ export default function Detail({ data }) {
 				{isLoaded ? (
 					queryRzlt.map((item, index) => {
 						return (
-							<Grid item xs={7} sx={{ py: 1 }}>
+							<Grid item key={index} xs={7} sx={{ py: 1 }}>
 								<GameCard
 									id={item.id}
 									name={item.name}
@@ -62,7 +70,9 @@ export default function Detail({ data }) {
 						);
 					})
 				) : (
-					<LinearProgress />
+					<Grid item xs={12}>
+						<LinearProgress />
+					</Grid>
 				)}
 			</Grid>
 			<Footer />
