@@ -82,14 +82,16 @@ export default function TransitionsModal({ open, handleClose, gameId, desc }) {
 							{desc}
 						</Typography>
 						<Divider sx={{ my: 1 }} />
-						{data.categories.map((item, index) => {
-							return (
-								<Chip
-									sx={{ px: 1, mr: 0.5, mt: 0.5 }}
-									label={item.description}
-								/>
-							);
-						})}
+						{data.categories &&
+							data.categories.length > 0 &&
+							data.categories.map((item, index) => {
+								return (
+									<Chip
+										sx={{ px: 1, mr: 0.5, mt: 0.5 }}
+										label={item.description}
+									/>
+								);
+							})}
 					</Box>
 				</Modal>
 			</div>

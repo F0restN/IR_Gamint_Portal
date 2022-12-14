@@ -4,7 +4,7 @@ import React from "react";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Homepage from "./pages/HomePage";
-import Detail from "./pages/detail";
+import Detail from "./pages/Detail";
 
 function App() {
 	return (

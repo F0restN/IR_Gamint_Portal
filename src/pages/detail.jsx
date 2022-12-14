@@ -46,8 +46,8 @@ export default function Detail({ data }) {
 
 	return (
 		<div>
-			<Grid container alignItems="start" sx={{ p: 2 }}>
-				<Grid item xs={4} sx={{ pt: 2 }}>
+			<Grid container alignItems="start" sx={{ py: 2, px: 6 }}>
+				<Grid item xs={5} sx={{ pt: 2 }}>
 					<Search />
 				</Grid>
 				<Grid item xs={12} sx={{ py: 4 }}>
